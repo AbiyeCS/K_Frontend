@@ -21,11 +21,6 @@
 
             <div class="container">
                 <p>Enter Product Details</p>
-                {{% if errormessage}}
-                    <div class="alert alert-danger" role="alert">
-                        {{ errormessage }}
-                    </div>
-                {{ endif }}
                 <form id ="productForm" action="/add-product" method="post">
                     <div class="form-group">
                       <label for="name">Name</label>
