@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row">
+                <div class ="col-md-12">
+                    <h1>Orders</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-4">
+        <section id="products" class="mt-4">
+            <h2>Our Orders</h2>
+            {% if orders and orders.length > 0 %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Customer Id</th>
+                            <th scope="col">Order Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>{{ order.orderID }}</td>
+                                <td>{{ order.customerID }}</td>
+                                <td>{{ order.orderDate }}</td>
+                                <td><a href="order/{{ order.orderID }}">View</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                There are no orders. 
+            {% endif %}
+        </section>
+    </main>
+</body>
+</html>

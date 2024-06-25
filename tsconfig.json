@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist", // Specifies the directory where compiled JavaScript files will be placed. In this case, it's ./dist.
+        "target": "ES5", // Specifies the ECMAScript target version for the compiled JavaScript. Here, it is set to ES5, meaning the output will be compatible with ECMAScript 5.
+        "sourceMap": true, // If set to true, generates source map files which help in debugging the TypeScript code by mapping the compiled JavaScript code back to the original TypeScript source.
+        "noImplicitAny": true // If set to true, raises an error when a variable is implicitly assigned the any type. This helps catch errors where the type is not explicitly specified.
+    },
+    "include": ["./**/*"],
+    // Specifies an array of file patterns to include in the compilation. ./**/* means to include all files in the project directory and its subdirectories. This should generally be more specific to avoid including unnecessary files.
+    "exclude": [
+        "./node_modules/**/*",
+        "./dist/**/*"
+    ]
+    // Specifies an array of file patterns to exclude from the compilation. In this case, the node_modules and dist directories are excluded to avoid compiling dependencies and already compiled output.
+}
