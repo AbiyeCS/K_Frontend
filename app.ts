@@ -4,6 +4,8 @@ const nunjucks = require(`nunjucks`);
 const bodyParser = require('body-parser');
 
 import { Request, Response } from "express";
+import session = require("express-session");
+import { Product } from "./model/product";
 
 const app = express(); // Creates an instance of an Express app
 
@@ -20,6 +22,15 @@ nunjucks.configure(appViews, nunjucksConfig);
 
 app.use(express.json()) // This line adds a middleware that parses incoming requests with JSON payloads. It is a built-in middleware function
 app.use(express.urlencoded({extended: true})); // This line adds a middleware that parses incoming requests with URL-encoded payloads. It is used to parse the data sent through HTML forms using the application/x-www-form-urlencoded encoding.
+
+app.use(session({ secret: 'NOT HARCODED SECRET', cookie: { maxAge: 60000 }}));
+// This line above configures and initializes session management in an Express.js application using the express-session middleware. 
+
+declare module "express-session" {
+    interface SessionData {
+        product: Product; // adding a product property to the SessionData interface allows us to store a product object in the session 
+    }
+} // This extends the express-session module's SessionData interface in TypeScript. This allows you to add custom properties to the session object.
 
 // Configure Express
 app.set('view engine', 'html'); // Sets the deafult file extension for views to .html

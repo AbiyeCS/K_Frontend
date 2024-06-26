@@ -55,5 +55,28 @@ module.exports = function(app: Application){
             res.render('add-product', req.body)
         }
     })
+
+    // All for sessions gave up doing - cbf at the moment to create all the different view pages to show how sessions/caching works
+    // app.get('/add-product-name' , async (req: Request, res: Response) => {
+    //     if(!req.session.product){
+    //         req.session.product = {}
+    //     }
+    //     res.render('add-product-name')
+    // })
+
+    // app.post('/add-product-name' , async (req: Request, res: Response) => {
+    //     req.session.product["name"] = req.body.name;
+    //     res.redirect('add-product-description');
+    // })
+
+    // app.post('/add-product-description' , async (req: Request, res: Response) => {
+    //     req.session.product["description"] = req.body.description;
+    //     res.redirect('add-product-price');
+    // })
+
+    // app.post('/add-product-description' , async (req: Request, res: Response) => {
+    //     req.session.product["description"] = req.body.description;
+    //     res.redirect('add-product-price');
+    // })
     
 }
