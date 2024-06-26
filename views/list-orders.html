@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Order Id</th>
-                            <th scope="col">Customer Id</th>
+                            <th scope="col">Customer Name</th>
                             <th scope="col">Order Date</th>
                         </tr>
                     </thead>
@@ -32,7 +32,7 @@
                         {% for order in orders %}
                             <tr>
                                 <td>{{ order.orderID }}</td>
-                                <td>{{ order.customerID }}</td>
+                                <td>{{ order.customerName }}</td>
                                 <td>{{ order.orderDate }}</td>
                                 <td><a href="order/{{ order.orderID }}">View</a></td>
                             </tr>
