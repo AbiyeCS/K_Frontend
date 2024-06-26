@@ -26,8 +26,6 @@ module.exports = function(app: Application){
             customerName: customerMap.get(order.customerID)
         }));
 
-        console.log("Orders with Customer Names:", ordersWithCustomerNames);
-
         res.render('list-orders', {orders: ordersWithCustomerNames})
     })
 
@@ -59,13 +57,13 @@ module.exports = function(app: Application){
         let data: Order = req.body
         const data1 = req.body
         console.log("Check req body", data1)
-        let id: Number
+        let orderID: number;
 
         try {
             const createdOrder = await orderService.createOrder(data)
-            id = createdOrder.id;
+            orderID = createdOrder.orderID;
 
-            res.redirect('/order/' + id)
+            res.redirect('/order/' + orderID)
         }catch(e){
             console.error(e);
 
