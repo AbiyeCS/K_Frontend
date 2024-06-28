@@ -54,4 +54,6 @@ require('./controller/orderController')(app);
 
 require('./controller/authController')(app);
 
+require('./controller/registerController')(app);
+
 
