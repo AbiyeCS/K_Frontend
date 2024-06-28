@@ -48,11 +48,14 @@ app.get('/', (req: Request, res: Response) => {
     }); 
 }) // Defines a route for the root URL. When a GET request is made to the root URL, it renders the piiza.html template
 
+require('./controller/authController')(app);
+
+const authMiddleware = require('./middleware/auth');
+app.use(authMiddleware);
+
 require('./controller/productController')(app); //imports the routes defined in product controller into our main express application 
 
 require('./controller/orderController')(app);
-
-require('./controller/authController')(app);
 
 require('./controller/registerController')(app);
 
