@@ -29,6 +29,7 @@ app.use(session({ secret: 'NOT HARCODED SECRET', cookie: { maxAge: 60000 }}));
 declare module "express-session" {
     interface SessionData {
         product: Product; // adding a product property to the SessionData interface allows us to store a product object in the session 
+        token: String;
     }
 } // This extends the express-session module's SessionData interface in TypeScript. This allows you to add custom properties to the session object.
 
@@ -50,5 +51,7 @@ app.get('/', (req: Request, res: Response) => {
 require('./controller/productController')(app); //imports the routes defined in product controller into our main express application 
 
 require('./controller/orderController')(app);
+
+require('./controller/authController')(app);
 
 
